@@ -1,5 +1,6 @@
 import React from "react";
 import Axios from 'axios';
+import {BOOKS} from "../../config";
 class HomePage extends React.Component {
 
 
@@ -15,7 +16,7 @@ class HomePage extends React.Component {
 
     //CONNEXION À L'API
     getInfos = () => {
-        Axios.get("http://127.0.0.1:8000/books")
+        Axios.get(BOOKS)
             //.then(response => console.log(response.data['hydra:member']))
             .then(response => this.setState({infos: response.data['hydra:member'], isLoaded: true}))
     };
