@@ -1,6 +1,6 @@
 import React from "react";
 import Axios from 'axios';
-import {BOOKS} from "../../config";
+import {BOOKS} from "../config";
 class HomePage extends React.Component {
 
 
