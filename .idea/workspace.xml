@@ -2,25 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c38f885-a35d-43be-b0bf-5d87a3a81e9a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/static/img/icons/check.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/static/img/icons/uncheck.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/HomePage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-book-manager/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-book-manager/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-book-manager/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-book-manager/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-book-manager/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-book-manager/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-book-manager/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-book-manager/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-book-manager/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-book-manager/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-book-manager/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-book-manager/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-book-manager/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-book-manager/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-book-manager/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-book-manager/src/reportWebVitals.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-book-manager/src/setupTests.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-book-manager/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +23,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,15 +44,30 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets" />
+      <recent name="$PROJECT_DIR$/src/assets/img/icons" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/static" />
+      <recent name="$PROJECT_DIR$/src/pages" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
@@ -64,7 +80,28 @@
       <option name="presentableId" value="Default" />
       <updated>1610656081319</updated>
       <workItem from="1610656082791" duration="231000" />
-      <workItem from="1610656461007" duration="1252000" />
+      <workItem from="1610656461007" duration="2641000" />
+      <workItem from="1610660416057" duration="1388000" />
+      <workItem from="1610698001572" duration="4908000" />
+      <workItem from="1610713544781" duration="2130000" />
+      <workItem from="1610729078527" duration="2517000" />
+      <workItem from="1610802577669" duration="819000" />
+      <workItem from="1610879546694" duration="2129000" />
+      <workItem from="1610887781929" duration="10289000" />
+      <workItem from="1610911982919" duration="174000" />
+      <workItem from="1610968238699" duration="141000" />
+      <workItem from="1610989165751" duration="8599000" />
+      <workItem from="1611045499008" duration="414000" />
+      <workItem from="1611061527042" duration="51000" />
+      <workItem from="1611075572451" duration="3908000" />
+      <workItem from="1611079649967" duration="6107000" />
+      <workItem from="1611143589834" duration="3992000" />
+      <workItem from="1611169664822" duration="3243000" />
+      <workItem from="1611172959849" duration="2799000" />
+      <workItem from="1611250296317" duration="6218000" />
+      <workItem from="1611256593746" duration="4363000" />
+      <workItem from="1611313539762" duration="2100000" />
+      <workItem from="1611318631865" duration="86000" />
     </task>
     <servers />
   </component>

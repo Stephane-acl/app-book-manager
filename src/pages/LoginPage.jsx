@@ -1,0 +1,68 @@
+import React, {useState, useContext} from 'react';
+import AuthApi from "../services/AuthApi";
+import AuthContext from "../contexts/AuthContext";
+
+const LoginPage = ({history}) => {
+
+    const {setIsAuthenticated} = useContext(AuthContext);
+
+    const [credentials, setCredentials] = useState({
+        username: '',
+        password: ''
+    });
+
+    const [error, setError] = useState("");
+
+    //Gestion des champs
+    const handleChange = (event) => {
+        const value = event.currentTarget.value;
+        const name = event.currentTarget.name;
+        setCredentials({...credentials, [name]: value});
+    };
+
+    //Gestion du submit
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            await AuthApi.authenticate(credentials);
+            setError("");
+            setIsAuthenticated(true);
+            history.replace("/");
+        } catch (error) {
+            setError("Aucun compte ne posssède cette adresse email ou alors les informations de correspondent pas !")
+        }
+    };
+
+    return (
+        <>
+            <h1>Connexion</h1>
+
+            <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label htmlFor='username'>Adresse email</label>
+                    <input value={credentials.username}
+                           onChange={handleChange} type='email'
+                           className={'form-control' + (error && " is-invalid")}
+                           placeholder="prenom@exemple.com" name='username'
+                           id='username'/>
+                    {error && <p className="invalid-feedback">{error}</p>}
+                </div>
+                <div className="form-group">
+                    <label htmlFor='password'>Mot de passe</label>
+                    <input value={credentials.password}
+                           onChange={handleChange}
+                           type='text'
+                           className='form-control'
+                           placeholder='Mot de passe'
+                           name='password'
+                           id='password'/>
+                </div>
+                <div className='form-group'>
+                    <button type='submit' className='btn btn-success'>Se connecter</button>
+                </div>
+            </form>
+        </>
+    )
+}
+
+export default LoginPage;
