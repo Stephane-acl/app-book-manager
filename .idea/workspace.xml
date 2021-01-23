@@ -2,18 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c38f885-a35d-43be-b0bf-5d87a3a81e9a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/static/img/icons/check.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/img/icons/uncheck.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/HomePage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AuthorsPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AuthorsPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/BooksPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/BooksPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/LoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/API.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/API.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/AuthApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AuthAPI.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,6 +103,13 @@
       <workItem from="1611256593746" duration="4363000" />
       <workItem from="1611313539762" duration="2100000" />
       <workItem from="1611318631865" duration="86000" />
+      <workItem from="1611326723116" duration="4954000" />
+      <workItem from="1611340258161" duration="17979000" />
+      <workItem from="1611388400114" duration="4730000" />
+      <workItem from="1611393493534" duration="446000" />
+      <workItem from="1611396000827" duration="1271000" />
+      <workItem from="1611397279965" duration="218000" />
+      <workItem from="1611397507530" duration="11925000" />
     </task>
     <servers />
   </component>
@@ -119,5 +127,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

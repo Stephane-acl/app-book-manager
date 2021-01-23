@@ -2,12 +2,16 @@ import React, {useEffect, useState} from 'react';
 import Pagination from "../components/Pagination";
 import moment from 'moment';
 import API from "../services/API";
+import {Link} from "react-router-dom";
+import {toast} from "react-toastify";
+import TableLoader from "../components/loaders/TableLoader";
 
 const AuthorsPage = (props) => {
 
     const [authors, setAuthors] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [search, setSearch] = useState("");
+    const [loading, setLoading] = useState(true);
     const itemsPerPage = 10;
 
     // Récupération des auteurs auprès de l'API
@@ -15,8 +19,9 @@ const AuthorsPage = (props) => {
         try {
             const data = await API.findAllAuthors();
             setAuthors(data);
+            setLoading(false);
         } catch (error) {
-            console.log(error);
+            toast.error("Erreur lors du chargement des auteurs");
         }
     }
 
@@ -43,8 +48,9 @@ const AuthorsPage = (props) => {
 
         try {
             await API.delete(id);
+            toast.success("L'auteur à bien été supprimé");
         } catch (error) {
-            console.log(error.response);
+            toast.error("Une erreur est survenue");
             setAuthors(originalAuthors);
         }
     }
@@ -54,17 +60,21 @@ const AuthorsPage = (props) => {
 
     // Filtrage des livres en fonction de la recherche
     const filteredAuthors = authors.filter(a =>
-        a.firstName.toLowerCase().includes(search.toLowerCase()) ||
-        a.lastName.toLowerCase().includes(search.toLowerCase()) ||
-        a.nationality.toLowerCase().includes(search.toLowerCase())
+        a.firstName?.toLowerCase().includes(search.toLowerCase()) ||
+        a.lastName?.toLowerCase().includes(search.toLowerCase()) ||
+        a.nationality?.toLowerCase().includes(search.toLowerCase())
     );
 
     // Pagination des données
     const paginatedAuthors = Pagination.getData(filteredAuthors, currentPage, itemsPerPage);
-
+    //TODO AJOUTER LIENS VERS LIVRES
     return (
         <>
-            <h1>Liste des Auteurs</h1>
+            <div className="mb-3 d-flex justify-content-between align-items-center">
+                <h1>Liste des Auteurs</h1>
+                <small>Attention si vous supprimez un auteur cela entrainera la suppression de ces livres</small>
+                <Link to='/authors/new' className='btn btn-primary'>Créer un auteur</Link>
+            </div>
 
             <div className="form-group">
                 <input type='text' onChange={handleSearch} value={search} className="form-control"
@@ -82,24 +92,29 @@ const AuthorsPage = (props) => {
                     <th>action</th>
                 </tr>
                 </thead>
-                <tbody>
-                {paginatedAuthors.map(author =>
-                    <tr key={author.id}>
-                        <td>{author.id}</td>
-                        <td>
-                            <a href="#">{author.lastName}</a>
-                        </td>
-                        <td>{author.firstName}</td>
-                        <td>{formatDate(author.dateOfBirth)}</td>
-                        <td>{author.nationality}</td>
-                        <td>
-                            <button>Mettre à jour</button>
-                            <button onClick={() => handleDelete(author.id)}>Supprimer</button>
-                        </td>
-                    </tr>
+                {!loading && (
+                    <tbody>
+                    {paginatedAuthors.map(author =>
+                        <tr key={author.id}>
+                            <td>{author.id}</td>
+                            <td>{author.lastName}</td>
+                            <td>{author.firstName}</td>
+                            <td>{formatDate(author.dateOfBirth)}</td>
+                            <td>{author.nationality}</td>
+                            <td>
+                                <Link className="btn btn-primary" to={"/authors/" + author.id}>
+                                    Mettre à jour
+                                </Link>
+                                <button className='btn btn-danger' onClick={() => handleDelete(author.id)}>
+                                    Supprimer
+                                </button>
+                            </td>
+                        </tr>
+                    )}
+                    </tbody>
                 )}
-                </tbody>
             </table>
+            {loading && <TableLoader/>}
             {
                 itemsPerPage < filteredAuthors.length &&
                 <Pagination currentPage={currentPage} itemsPerPage={itemsPerPage} length={filteredAuthors.length}

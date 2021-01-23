@@ -3,12 +3,16 @@ import ButtonActive from "../components/ButtonActive";
 import Pagination from "../components/Pagination";
 import API from "../services/API";
 import moment from 'moment';
+import {Link} from "react-router-dom";
+import {toast} from "react-toastify";
+import TableLoader from "../components/loaders/TableLoader";
 
 const BooksPage = () => {
 
     const [books, setBooks] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [search, setSearch] = useState("");
+    const [loading, setLoading] = useState(true);
 
     // Permet d'aller récupérer les livres depuis notre api
     const fetchBooks = async () => {
@@ -16,8 +20,9 @@ const BooksPage = () => {
         try {
             const data = await API.findAllBooks()
             setBooks(data);
+            setLoading(false);
         } catch (error) {
-            console.log(error.response);
+            toast.error("Impossible de charger les livres");
         }
     };
 
@@ -83,7 +88,10 @@ const BooksPage = () => {
 
     return (
         <>
-            <h1>Liste des livres</h1>
+            <div className="mb-3 d-flex justify-content-between align-items-center">
+                <h1>Liste des livres</h1>
+                <Link to='/books/new' className='btn btn-primary'>Créer un livre</Link>
+            </div>
 
             <div className="form-group">
                 <input type='text' onChange={handleSearch} value={search} className="form-control"
@@ -105,38 +113,40 @@ const BooksPage = () => {
                     <th></th>
                 </tr>
                 </thead>
-                <tbody>
-                {paginatedBooks.map(book =>
-                    <tr key={book.id}>
-                        <td>{book.id}</td>
-                        <td><img src={book.image} alt={book.title} height="120px"/></td>
-                        <td>
-                            <a href="#">{book.title}</a>
-                        </td>
-                        <td>{book.language}</td>
-                        <td>{book.description}</td>
-                        <td className="text-center">
-                            <span className="badge badge-primary p-2">{book.nbrPages}</span>
-                        </td>
-                        <td className="text-center">{book.author?.firstName} {book.author?.lastName}</td>
-                        <td className="text-center">{formatDate(book.dateOfPublication)}</td>
-                        <td className="text-center">
-                            {
-                                book.isAvailable ? (
-                                    <img src="static/img/icons/check.svg" alt="check" height="35px"/>
-                                ) : (
-                                    <img src="static/img/icons/uncheck.svg" alt="uncheck" height="35px"/>
-                                )
-                            }
-                        </td>
-                        <td>
-                            <ButtonActive active={book.isAvailable}/>
-                        </td>
-                    </tr>
+                {!loading && (
+                    <tbody>
+                    {paginatedBooks.map(book =>
+                        <tr key={book.id}>
+                            <td>{book.id}</td>
+                            <td><img src={book.image} alt={book.title} height="120px"/></td>
+                            <td>
+                                <Link to={'/books/' + book.id}>{book.title}</Link>
+                            </td>
+                            <td>{book.language}</td>
+                            <td>{book.description}</td>
+                            <td className="text-center">
+                                <span className="badge badge-primary p-2">{book.nbrPages}</span>
+                            </td>
+                            <td className="text-center">{book.author?.firstName} {book.author?.lastName}</td>
+                            <td className="text-center">{formatDate(book.dateOfPublication)}</td>
+                            <td className="text-center">
+                                {
+                                    book.isAvailable ? (
+                                        <img src="static/img/icons/check.svg" alt="check" height="35px"/>
+                                    ) : (
+                                        <img src="static/img/icons/uncheck.svg" alt="uncheck" height="35px"/>
+                                    )
+                                }
+                            </td>
+                            <td>
+                                <ButtonActive active={book.isAvailable}/>
+                            </td>
+                        </tr>
+                    )}
+                    </tbody>
                 )}
-                </tbody>
             </table>
-
+            {loading && <TableLoader/>}
             {
                 itemsPerPage < filteredBooks.length &&
                 <Pagination currentPage={currentPage} itemsPerPage={itemsPerPage} length={filteredBooks.length}

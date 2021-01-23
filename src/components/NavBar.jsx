@@ -1,7 +1,8 @@
 import React, {useContext} from 'react';
 import {Link} from "react-router-dom";
-import AuthApi from "../services/AuthApi";
+import AuthApi from "../services/AuthAPI";
 import AuthContext from "../contexts/AuthContext";
+import {toast} from "react-toastify";
 
 const NavBar = ({history}) => {
 
@@ -10,6 +11,7 @@ const NavBar = ({history}) => {
     const handleLogout = () => {
         AuthApi.logout();
         setIsAuthenticated(false);
+        toast.info("Vous êtes désormais déconnecté");
         history.replace('/login');
     }
 
@@ -27,20 +29,20 @@ const NavBar = ({history}) => {
                         <Link to='/books' className="nav-link">Livres</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to='/authors' className="nav-link" href="#">Auteurs</Link>
+                        <Link to='/authors' className="nav-link">Auteurs</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to='/categories' className="nav-link" href="#">Catégories</Link>
+                        <Link to='/categories' className="nav-link">Catégories</Link>
                     </li>
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                            aria-haspopup="true" aria-expanded="false">Dropdown</a>
                         <div className="dropdown-menu">
-                            <Link className="dropdown-item">Action</Link>
-                            <Link className="dropdown-item">Another action</Link>
-                            <Link className="dropdown-item">Something else here</Link>
+                            <Link className="dropdown-item" to="">Action</Link>
+                            <Link className="dropdown-item" to="">Another action</Link>
+                            <Link className="dropdown-item" to="">Something else here</Link>
                             <div className="dropdown-divider"/>
-                            <Link className="dropdown-item">Separated link</Link>
+                            <Link className="dropdown-item" to="">Separated link</Link>
                         </div>
                     </li>
                 </ul>
