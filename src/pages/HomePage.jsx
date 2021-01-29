@@ -1,20 +1,53 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
-const HomePage = (props) => {
+import OmniSearch from "../components/effects/Omnisearch";
+import PropTypes from "prop-types";
+import API from "../services/API";
+import {toast} from "react-toastify";
 
-return (
-    <div className="jumbotron">
-        <h1 className="display-3">Hello, world!</h1>
-        <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
-            to featured content or information.</p>
-        <hr className="my-4"/>
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <p className="lead">
-                <a className="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-            </p>
-    </div>
-);
+const HomePage = ({history}) => {
 
+
+    const [libraries, setLibraries] = useState([]);
+    // Permet d'aller récupérer la librairie depuis notre api
+    const fetchLibraries = async () => {
+
+        try {
+            const data = await API.findAll("LIBRARY")
+            setLibraries(data);
+        } catch (error) {
+            toast.error("Impossible de charger la librairie");
+        }
+    };
+
+    // Au chargement du composant on va chercher les livres
+    useEffect(() => {
+        fetchLibraries();
+    }, []);
+
+
+    return (
+        <>
+            {libraries.map(library =>
+                <h1 className="text-center">{library.label}</h1>
+            )}
+
+            <div className="jumbotron">
+                <OmniSearch
+                    id="bookSearch"
+                    titleTextSearch="Mes Livres"
+                    arrowNav={true}
+                    history={history}
+                />
+            </div>
+        </>
+    );
 }
+
+HomePage.propTypes = {
+    id: PropTypes.string,
+    placeholder: PropTypes.string,
+}
+
 
 export default HomePage;

@@ -1,32 +1,41 @@
 import axios from 'axios';
-import {AUTHORS, BOOKS} from "../config";
+import {AUTHORS, BOOKS, CATEGORIES} from "../config";
+import * as API from "../config"
+import AuthAPI from "./AuthAPI";
 
 
-// TARGET BOOKS
-function findAllBooks() {
-    return axios
-        .get(BOOKS)
-        .then(response => response.data['hydra:member'])
+function findAll(target, condition = null) {
+    return axios.get(condition ? API[target] + condition : API[target]).then(async (response) => {
+        return response.data["hydra:member"] ? response.data["hydra:member"] : response.data
+    })
 }
 
+function find(target, id) {
+    return axios.get(API[target] + "/" + id).then(async (response) => {
+        isAuthorize(response)
+        return response.data
+    })
+}
+
+// TARGET BOOKS
 function findBook(id) {
     return axios.get(BOOKS + '/' + id)
         .then(response => response.data);
 }
 
 function updateBook(id, book) {
-    return axios.put(BOOKS + '/' + id, {...book, author: `/authors/${book.author}`});
+    return axios.put(BOOKS + '/' + id, {...book, author: `/authors/${book.author}`, category: `/categories/${book.category}`});
 }
+
+//function update(target, id, data) {
+//    return axios.put(API[target] + "/" + id, data).then(async (response) => {
+//        isAuthorize(response)
+//        return response
+//    })
+//}
 
 function createBook(book) {
-    return axios.post(BOOKS, {...book, author: `/authors/${book.author}`});
-}
-
-//TARGET AUTHORS
-function findAllAuthors() {
-    return axios
-        .get(AUTHORS)
-        .then(response => response.data['hydra:member'])
+    return axios.post(BOOKS, {...book, author: `/authors/${book.author}`, category: `/categories/${book.category}`});
 }
 
 function deleteAuthor(id) {
@@ -47,16 +56,49 @@ function createAuthor(author) {
     return axios.post(AUTHORS, author);
 }
 
+// TARGET CATEGORIES
+
+function deleteCategory(id) {
+    return axios.delete(CATEGORIES + '/' + id);
+}
+
+function findCategory(id) {
+    return axios.get(CATEGORIES + '/' + id).then(async  (response) => {
+        isAuthorize(response)
+        return response.data
+    })
+}
+
+function updateCategory(id, category) {
+    return axios.put(CATEGORIES + '/' + id, category);
+}
+
+function createCategory(category) {
+    return  axios.post(CATEGORIES, category);
+}
+
+//*******//
+function isAuthorize(response) {
+    if (response.status === 401) {
+        AuthAPI.reloadApp()
+        return false
+    }
+    return true
+}
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-    findAllBooks,
-    findAllAuthors,
+    findAll,
+    find,
     delete: deleteAuthor,
     findBook,
     updateBook,
     createBook,
     findAuthor,
     updateAuthor,
-    createAuthor
+    createAuthor,
+    deleteCategory,
+    findCategory,
+    updateCategory,
+    createCategory
 };

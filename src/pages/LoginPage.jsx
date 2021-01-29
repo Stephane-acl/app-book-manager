@@ -3,17 +3,24 @@ import AuthApi from "../services/AuthAPI";
 import AuthContext from "../contexts/AuthContext";
 import Field from "../components/forms/Field";
 import {toast} from "react-toastify";
+import {haveRole} from "../services/functions";
 
 const LoginPage = ({history}) => {
 
-    const {setIsAuthenticated} = useContext(AuthContext);
+    const {user, setIsAuthenticated} = useContext(AuthContext);
+    const [count, setCount] = useState(1)
+    const [loading, setLoading] = useState(false)
 
     const [credentials, setCredentials] = useState({
-        username: '',
-        password: ''
+        username: "",
+        password: ""
     });
 
-    const [error, setError] = useState("");
+    //  useEffect(() => {
+    //      if (user) {
+    //          document.location.reload()
+    //      }
+    //  }, [user])
 
     //Gestion des champs
     const handleChange = (event) => {
@@ -22,18 +29,23 @@ const LoginPage = ({history}) => {
         setCredentials({...credentials, [name]: value});
     };
 
-    //Gestion du submit
+    // Gestion au submit authentification
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setLoading(true);
         try {
             await AuthApi.authenticate(credentials);
-            setError("");
             setIsAuthenticated(true);
             toast.success("Vous êtes connecté !")
             history.replace("/");
+            if (haveRole(user, "ADMIN")) {
+                document.location.reload();
+            }
         } catch (error) {
-            setError("Aucun compte ne posssède cette adresse email ou alors les informations de correspondent pas !");
-            toast.error("Une erreur est survenue");
+            setLoading(false);
+            let label = count > 1 ? count + " tentatives" : count + " tentative"
+            toast.error("Mauvaise combinaison login/mot de passe - " + label)
+            setCount(count + 1)
         }
     };
 
@@ -47,7 +59,6 @@ const LoginPage = ({history}) => {
                        value={credentials.username}
                        onChange={handleChange}
                        placeholder="prenom@exemple.com"
-                       error={error}
                        type='email'
                 />
 
@@ -58,7 +69,13 @@ const LoginPage = ({history}) => {
                        type="password"
                 />
                 <div className='form-group'>
-                    <button type='submit' className='btn btn-success'>Se connecter</button>
+                    <button type='submit' disabled={loading} className='btn btn-success'>
+                        {loading ? (
+                            <span className="spinner-border spinner-border-sm"/>
+                        ) : (
+                            <>Se connecter</>
+                        )}
+                    </button>
                 </div>
             </form>
         </>

@@ -47,7 +47,7 @@ const RegisterPage = ({history}) => {
             await UsersAPI.register(user);
             setErrors({});
 
-            toast.success("Vous êtes desormais inscrit, vous pouvez vous connecter !");
+            toast.success("Vous venez de créer un utilisateur !");
             history.replace('/login');
 
         } catch (error) {
@@ -103,7 +103,7 @@ const RegisterPage = ({history}) => {
             </form>
             <div className='form-group'>
                 <button type='submit' className='btn btn-success' onClick={handleSubmit}>Confirmation</button>
-                <Link to='/login' className='btn btn-link'>J'ai déja un compte</Link>
+                <Link to='/login' className='btn btn-link'>Retour</Link>
             </div>
         </>
     )

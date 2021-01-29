@@ -5,5 +5,7 @@ export const API_URL = process.env.REACT_APP_DEV_LOCAL
 
 export const LOGIN_API = API_URL + "/login_check"
 export const USERS = API_URL + "/users"
+export const LIBRARY = API_URL + "/libraries"
 export const BOOKS = API_URL + "/books"
 export const AUTHORS = API_URL + "/authors"
+export const CATEGORIES = API_URL + "/categories"

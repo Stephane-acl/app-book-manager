@@ -2,13 +2,7 @@ import axios from "axios";
 import {LOGIN_API} from "../config";
 import jwtDecode from "jwt-decode";
 
-
-// TARGET LOGOUT
-// Deconnexion (Suppression du token du local storage et sur Axios )
-function logout() {
-    window.localStorage.removeItem("authToken");
-    delete axios.defaults.headers['Authorization'];
-}
+const windowGlobal = typeof window !== "undefined" && window
 
 // TARGET LOGIN
 //Requête http d'authentification et stockage du token dans le storage sur axios
@@ -60,10 +54,24 @@ function isAuthenticated() {
     return false;
 }
 
+// TARGET LOGOUT
+// Deconnexion (Suppression du token du local storage et sur Axios )
+function logout() {
+    windowGlobal.localStorage.clear()
+    windowGlobal.sessionStorage.clear()
+    delete axios.defaults.headers['Authorization'];
+}
+
+function reloadApp() {
+    logout()
+    document.location.reload()
+}
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
     authenticate,
     logout,
     setup,
-    isAuthenticated
+    isAuthenticated,
+    reloadApp
 };
