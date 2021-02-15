@@ -1,4 +1,4 @@
-// package metadata file for Meteor.js
+// package metadata file for Meteor.jsImport
 'use strict';
 
 var packageName = 'gromo:jquery.scrollbar'; // https://atmospherejs.com/mediatainment/switchery
@@ -16,11 +16,11 @@ Package.describe({
 Package.onUse(function (api) {
     api.versionsFrom(['METEOR@0.9.0', 'METEOR@1.0']);
     api.use('jquery', where);
-    api.addFiles(['jquery.scrollbar.js', 'jquery.scrollbar.css'], where);
+    api.addFiles(['jquery.scrollbar.jsImport', 'jquery.scrollbar.css'], where);
 });
 
 Package.onTest(function (api) {
     api.use([packageName, 'sanjo:jasmine'], where);
     api.use(['webapp','tinytest'], where);
-    api.addFiles('meteor/tests.js', where); // testing specific files
+    api.addFiles('meteor/tests.jsImport', where); // testing specific files
 });

@@ -29,10 +29,9 @@ const HomePage = ({history}) => {
     return (
         <>
             {libraries.map(library =>
-                <h1 className="text-center">{library.label}</h1>
+                <h1 key={library.id} className="text-center m-5">{library.label}</h1>
             )}
-
-            <div className="jumbotron">
+            <div className="container-homepage">
                 <OmniSearch
                     id="bookSearch"
                     titleTextSearch="Mes Livres"

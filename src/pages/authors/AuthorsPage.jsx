@@ -17,7 +17,7 @@ const AuthorsPage = (props) => {
     // Récupération des auteurs auprès de l'API
     const fetchAuthors = async () => {
         try {
-            const data = await API.findAll('AUTHORS');
+            const data = await API.findAll("AUTHORS")
             setAuthors(data);
             setLoading(false);
         } catch (error) {
@@ -39,7 +39,7 @@ const AuthorsPage = (props) => {
         setSearch(event.currentTarget.value);
         setCurrentPage(1);
     }
-
+console.log(authors)
     // Gestion de la suppression
     const handleDelete = async (id) => {
         const originalAuthors = [...authors];
@@ -72,7 +72,7 @@ const AuthorsPage = (props) => {
         <>
             <div className="mb-3 d-flex justify-content-between align-items-center">
                 <h1>Liste des Auteurs</h1>
-                <small>Attention si vous supprimez un auteur cela entrainera la suppression de ces livres</small>
+                <small>Attention si vous supprimez un auteur cela entrainera la suppression de ses livres</small>
                 <Link to='/authors/new' className='btn btn-primary'>Créer un auteur</Link>
             </div>
 

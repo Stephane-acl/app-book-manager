@@ -4,5 +4,7 @@ export default React.createContext({
     isAuthenticated: false,
     setIsAuthenticated: (value) => {},
     user: {},
-    setUser: (value) => {}
+    setUser: (value) => {},
+    library: {},
+    setLibrary: (value) => {},
 });

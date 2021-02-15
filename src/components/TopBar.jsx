@@ -7,7 +7,7 @@ import {haveRole} from "../services/functions";
 
 const TopBar = ({history}) => {
 
-    const {user, isAuthenticated, setIsAuthenticated} = useContext(AuthContext);
+    const {user, isAuthenticated, setIsAuthenticated, library} = useContext(AuthContext);
 
     const handleLogout = () => {
         AuthApi.logout();
@@ -18,7 +18,9 @@ const TopBar = ({history}) => {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <Link to='/' className="navbar-brand">BookManager</Link>
+            <Link to='/' className="navbar-brand">
+                <img className="read" src="static/img/read.svg" alt='image livre'/>
+            </Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
                     aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"/>
@@ -43,60 +45,38 @@ const TopBar = ({history}) => {
                         <Link to='/categories' className="nav-link">Catégories</Link>
                     </li>
                 </ul>
-                <div className="media media-pill align-items-center">
-                    {user && isAuthenticated ? (
-            <>
-                <div className="ml-2">
-                    <span className="mb-0 text-sm font-weight-bold">
-                        <div
-                            style={{
-                                position: "relative",
-                                marginTop: "-12px",
-                                fontWeight: "bold",
-                            }}>
-                            {user.firstName} {user.lastName}
-                        </div>
-                        <div
-                            style={{
-                                fontSize: "12px",
-                                textAlign: "left",
-                                position: "absolute",
-                                bottom: "6px",
-                                left: "48px",
-                                height: "18px",
-                                overflowY: "hidden",
-                                textOverflow: "cut",
-                            }}>
 
-                        </div>
-                    </span>
-                </div>
-            </>
-                    ) : (
-                        <></>
-                    )}
-                </div>
                 <ul className="navbar-nav ml-auto">
-                    {/* Bouton nouveau membre */}
-                    {isAuthenticated && haveRole(user, "MANAGER") && (
-                        <li className="nav-item mr-3">
-                            <button className="btn btn-light">
-                                <Link to='/register'>Ajouter un utilisateur</Link>
-                            </button>
-                        </li>
-                    )}
-                    {
-                        (!isAuthenticated && (
-                            <li className="nav-item mr-3">
-                                <Link to='/login' className="btn btn-success">Connexion</Link>
-                            </li>
-                        )) || (
-                            <li className="nav-item">
-                                <button onClick={handleLogout} className="btn btn-danger">
-                                    Deconnexion
-                                </button>
-                            </li>
-                        )}
+
+                    <li className="nav-item dropdown">
+                        <a className="nav-link dropdown-toggle mr-5" data-toggle="dropdown" href="#!" role="button"
+                           aria-haspopup="true" aria-expanded="false">
+                            <div className="media media-pill align-items-center">
+                                <div className="ml-2">
+                                    <span className="mb-0 text-sm font-weight-bold">
+                                        <div style={{position: "relative", marginTop: "-12px", fontWeight: "bold", padding: "4px"}}>
+                                            {user.firstName} {user.lastName}
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                        <div className="dropdown-menu">
+                            {/* Bouton nouveau membre */}
+                            {isAuthenticated && haveRole(user, "MANAGER") && (
+                                <>
+                                    <Link className="dropdown-item" to="/register">Ajouter un utilisateur</Link>
+                                    <Link className="dropdown-item" to={"/library/" + library.id}>Modifier sa librairie</Link>
+                                    <div className="dropdown-divider"/>
+                                </>
+                            )}
+                            {
+                                (isAuthenticated && (
+                                    <button className="dropdown-item" onClick={handleLogout}>Deconnexion</button>
+                                ))
+                            }
+                        </div>
+                    </li>
                 </ul>
             </div>
         </nav>

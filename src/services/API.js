@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {AUTHORS, BOOKS, CATEGORIES} from "../config";
+import {AUTHORS, BOOKS, CATEGORIES, LIBRARY} from "../config";
 import * as API from "../config"
 import AuthAPI from "./AuthAPI";
 
@@ -17,6 +17,14 @@ function find(target, id) {
     })
 }
 
+function update(target, id, data) {
+    return axios.put(API[target] + "/" + id, data).then(async (response) => {
+        isAuthorize(response)
+        return response
+    })
+}
+
+
 // TARGET BOOKS
 function findBook(id) {
     return axios.get(BOOKS + '/' + id)
@@ -27,13 +35,6 @@ function updateBook(id, book) {
     return axios.put(BOOKS + '/' + id, {...book, author: `/authors/${book.author}`, category: `/categories/${book.category}`});
 }
 
-//function update(target, id, data) {
-//    return axios.put(API[target] + "/" + id, data).then(async (response) => {
-//        isAuthorize(response)
-//        return response
-//    })
-//}
-
 function createBook(book) {
     return axios.post(BOOKS, {...book, author: `/authors/${book.author}`, category: `/categories/${book.category}`});
 }
@@ -42,6 +43,11 @@ function deleteAuthor(id) {
     return axios
         .delete(AUTHORS + '/' + id)
 }
+// TARGET AUTHORS
+
+//function findAllAuthors() {
+//    return axios.get(AUTHORS).then(response => response.data['hydra:member'])
+//}
 
 function findAuthor(id) {
     return axios.get(AUTHORS + '/' + id)
@@ -86,10 +92,16 @@ function isAuthorize(response) {
     return true
 }
 
+function getLibrary() {
+    return axios.get(LIBRARY).then((response ) => response.data['hydra:member'][0]);
+}
+
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
     findAll,
     find,
+    update,
     delete: deleteAuthor,
     findBook,
     updateBook,
@@ -100,5 +112,6 @@ export default {
     deleteCategory,
     findCategory,
     updateCategory,
-    createCategory
+    createCategory,
+    getLibrary
 };

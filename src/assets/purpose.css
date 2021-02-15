@@ -1,3 +1,4 @@
+/*** START OMNISEARCH ***/
 .omnisearch {
     width: 100%;
     margin-top: 1rem;
@@ -6,19 +7,23 @@
     transform: translateY(0);
     transition: transform 0.3s, opacity 0.15s;
 }
+
 @media (prefers-reduced-motion: reduce) {
     .omnisearch {
         transition: none;
     }
 }
+
 .omnisearch.show {
     opacity: 1;
     transform: translateY(50%);
 }
+
 .omnisearch .container {
     position: relative;
     height: 100%;
 }
+
 .omnisearch .omnisearch-form {
     display: block;
     position: relative;
@@ -28,10 +33,12 @@
     width: 680px;
     margin: auto;
 }
+
 .omnisearch .omnisearch-form .input-group-text {
     font-size: 1.25rem;
     background: transparent;
 }
+
 .omnisearch .omnisearch-form .form-control {
     display: block;
     height: 76px;
@@ -40,22 +47,29 @@
     background-color: transparent;
     background-image: none;
     border: 1px solid #e0e6ed;
+    box-shadow: none;
 }
+
 .omnisearch .omnisearch-form .form-control::-webkit-input-placeholder {
     color: #aabacd;
 }
+
 .omnisearch .omnisearch-form .form-control::-moz-placeholder {
     color: #aabacd;
 }
+
 .omnisearch .omnisearch-form .form-control:-ms-input-placeholder {
     color: #aabacd;
 }
+
 .omnisearch .omnisearch-form .form-control::-ms-input-placeholder {
     color: #aabacd;
 }
+
 .omnisearch .omnisearch-form .form-control::placeholder {
     color: #aabacd;
 }
+
 .omnisearch .omnisearch-suggestions {
     width: 680px;
     min-height: 150px;
@@ -68,11 +82,13 @@
     transition: opacity 0.3s;
     transition-delay: 0.21s;
 }
+
 @media (prefers-reduced-motion: reduce) {
     .omnisearch .omnisearch-suggestions {
         transition: none;
     }
 }
+
 .omnisearch .omnisearch-suggestions:before {
     background: #fff;
     box-shadow: none;
@@ -87,56 +103,261 @@
     z-index: -5;
     border-radius: 0.2rem;
 }
+
 .omnisearch .omnisearch-suggestions .heading {
     color: #8492a6;
 }
+
 .omnisearch .omnisearch-suggestions .list-link span {
     font-weight: 600;
     color: #3c4858;
 }
+
 .omnisearch .omnisearch-suggestions .list-link:hover,
 .omnisearch .omnisearch-suggestions .list-link:hover span {
     color: #18bc9c;
 }
+
 .omnisearch.show .omnisearch-form,
 .omnisearch.show .omnisearch-suggestions {
     pointer-events: auto;
 }
+
 .omnisearch.show .omnisearch-suggestions {
     opacity: 1;
 }
+
 @media (max-width: 991.98px) {
     .omnisearch .omnisearch-form,
     .omnisearch .omnisearch-suggestions {
         width: 100%;
     }
 }
-.omnisearch-open {
-    overflow: hidden;
-}
 
 .omnisearch .selected {
     border: 2px dashed black;
     border-radius: 5px;
+    padding: 2px;
 }
 
-.media > i {
-    position: relative;
-    top: 4px;
+/*** END OMNISEARCH ***/
+
+/*** SIDEBAR HOMEPAGE ***/
+
+:root {
+    font-size: 16px;
+    font-family: 'Open Sans';
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
+    --transition-speed: 600ms;
 }
-.media-pill {
-    position: relative;
-    padding: 14px 1rem 4px 4px;
-    background-color: rgba(31, 45, 61, 0.15);
-    border-radius: 50rem;
-    transition: all 0.2s ease;
-    color: lightblue;
+
+.sidebar-container {
+    color: black;
+    background-color: white;
+    margin: 0;
+    padding: 0;
 }
-@media (prefers-reduced-motion: reduce) {
-    .media-pill {
-        transition: none;
+
+.sidebar-container::-webkit-scrollbar {
+    width: 0.25rem;
+}
+
+.sidebar-container::-webkit-scrollbar-track {
+    background: #1e1e24;
+}
+
+.sidebar-container::-webkit-scrollbar-thumb {
+    background: #6649b8;
+}
+
+main {
+    margin-left: 5rem;
+    padding: 1rem;
+}
+
+.sidebar {
+    position: fixed;
+    background-color: var(--bg-primary);
+    transition: width 600ms ease;
+    overflow: scroll;
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.sidebar-nav-item {
+    width: 100%;
+}
+
+.sidebar-nav-item:last-child {
+    margin-top: auto;
+}
+
+.sidebar-nav-link {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    filter: grayscale(100%) opacity(0.7);
+    transition: var(--transition-speed);
+}
+
+.sidebar-nav-link:hover {
+    filter: grayscale(0%) opacity(1);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+}
+
+.link-text-sidebar {
+    display: none;
+    margin-left: 1rem;
+}
+
+.sidebar-nav-link svg {
+    width: 2rem;
+    min-width: 2rem;
+    margin: 0 1.5rem;
+}
+
+.fa-primary {
+    color: #ff7eee;
+}
+
+.fa-secondary {
+    color: #df49a6;
+}
+
+.fa-primary,
+.fa-secondary {
+    transition: var(--transition-speed);
+}
+
+.logo {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    font-size: 1.5rem;
+    letter-spacing: 0.3ch;
+    width: 100%;
+}
+
+.logo svg {
+    transform: rotate(0deg);
+    transition: var(--transition-speed);
+}
+
+.logo-text
+{
+    display: inline;
+    position: absolute;
+    left: -999px;
+    transition: var(--transition-speed);
+}
+
+.sidebar:hover .logo svg {
+    transform: rotate(-180deg);
+}
+
+/* Small screens */
+@media only screen and (max-width: 600px) {
+    .sidebar {
+        bottom: 0;
+        width: 100vw;
+        height: 5rem;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+    }
+
+    .sidebar-nav-link {
+        justify-content: center;
+    }
+
+    main {
+        margin: 0;
     }
 }
-.media-pill:hover {
-    background-color: rgba(31, 45, 61, 0.3);
+
+/* Large screens */
+@media only screen and (min-width: 600px) {
+    .sidebar {
+        top: 0;
+        width: 5rem;
+        height: 100vh;
+    }
+
+    .sidebar:hover {
+        width: 16rem;
+    }
+
+    .sidebar:hover .link-text-sidebar {
+        display: inline;
+    }
+
+    .sidebar:hover .logo svg
+    {
+        margin-left: 11rem;
+    }
+
+    .sidebar:hover .logo-text
+    {
+        left: 0px;
+    }
 }
+
+.dark {
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
+}
+
+.light {
+    --text-primary: #1f1f1f;
+    --text-secondary: #000000;
+    --bg-primary: #ffffff;
+    --bg-secondary: #e4e4e4;
+}
+
+.solar {
+    --text-primary: #576e75;
+    --text-secondary: #35535c;
+    --bg-primary: #fdf6e3;
+    --bg-secondary: #f5e5b8;
+}
+
+.theme-icon {
+    display: none;
+}
+
+.dark #darkIcon {
+    display: block;
+}
+
+.light #lightIcon {
+    display: block;
+}
+
+.solar #solarIcon {
+    display: block;
+}
+/** END SIDEBAR HOMEPAGE* ***/

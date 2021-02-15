@@ -58,7 +58,7 @@ const BookPage = ({match, history}) => {
                 dateOfPublication,
                 image,
                 isAvailable,
-                author: author?.id,
+                author: author.id,
                 category: category.id
             });
             setLoading(false);
@@ -79,10 +79,11 @@ const BookPage = ({match, history}) => {
     const fetchAuthors = async () => {
         try {
             const data = await API.findAll('AUTHORS')
+            console.log(data)
             setAuthors(data);
             setLoading(false);
-            if (!book?.author) {
-                setBook({...book, author: data[0].id});
+            if (!book.author) {
+                setBook(b => ({...b, author: data[0].id}));
             }
         } catch (error) {
             toast.error("Impossible de charger les auteurs");
@@ -94,10 +95,11 @@ const BookPage = ({match, history}) => {
     const fetchCategories = async () => {
         try {
             const data = await API.findAll('CATEGORIES');
+            console.log(data)
             setCategories(data);
             setLoading(false);
             if (!book?.category) {
-                setBook({...book, category: data[0].id});
+                setBook( b => ({...b, category: data[0].id}));
             }
         } catch (error) {
 

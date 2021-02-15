@@ -7,21 +7,29 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/js/purpose.core.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/js/purpose.core.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/js/purpose.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/js/purpose.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/libs/bootstrap/dist/js/bootstrap.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/libs/bootstrap/dist/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/libs/bootstrap/dist/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/libs/bootstrap/dist/js/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/libs/font-awesome/metadata/icons.yml" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/libs/font-awesome/metadata/icons.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/libs/jquery-scroll-lock/dist/jquery-scrollLock.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/libs/jquery-scroll-lock/dist/jquery-scrollLock.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/libs/jquery.scrollbar/package.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/libs/jquery.scrollbar/package.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/libs/quill/dist/quill.core.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/libs/quill/dist/quill.core.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/libs/quill/dist/quill.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/libs/quill/dist/quill.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/libs/svg-injector/dist/svg-injector.map.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/libs/svg-injector/dist/svg-injector.map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/libs/svg-injector/dist/svg-injector.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/libs/svg-injector/dist/svg-injector.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PrivateRoute.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/routes/PrivateRoute.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/purpose.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/purpose.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TopBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TopBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/effects/Omnisearch.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/effects/Omnisearch.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/routes/PrivateAdminRoute.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/routes/PrivateManagerRoute.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/contexts/AuthContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/contexts/AuthContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AuthorPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/authors/AuthorPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AuthorsPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/authors/AuthorsPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/BookPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/books/BookPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/BooksPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/books/BooksPage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/HomePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/LoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/RegisterPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/RegisterPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/authors/AuthorsPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/authors/AuthorsPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/books/BookPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/books/BookPage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/API.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/API.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/AuthAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AuthAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/UsersAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/UsersAPI.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +44,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="SCSS File" />
         <option value="HTML File" />
         <option value="JavaScript File" />
       </list>
@@ -43,6 +52,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/Stephane-acl/app-book-manager" />
+      </set>
+    </option>
   </component>
   <component name="ProjectId" id="1n4j6GgBBIFGZF2uEWth4PXvKil" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -55,8 +71,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/static/img" />
+    <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -73,18 +89,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/static/img" />
+      <recent name="$PROJECT_DIR$/src/components/effects/HoverImages" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/public/static" />
       <recent name="$PROJECT_DIR$/src/components/effects" />
-      <recent name="$PROJECT_DIR$/src/components" />
-      <recent name="$PROJECT_DIR$/src/assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/pages/categories" />
-      <recent name="$PROJECT_DIR$/src/pages/authors" />
-      <recent name="$PROJECT_DIR$/src/pages/books" />
-      <recent name="$PROJECT_DIR$/src/components/routes" />
+      <recent name="$PROJECT_DIR$/public/static/js" />
+      <recent name="$PROJECT_DIR$/src/components/effects/ScriptHoverImages" />
+      <recent name="$PROJECT_DIR$/src/components/effects/ScriptHoverImages/Base" />
       <recent name="$PROJECT_DIR$/src/components/effects" />
+      <recent name="$PROJECT_DIR$/public/js" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -144,7 +160,16 @@
       <workItem from="1611861999343" duration="7094000" />
       <workItem from="1611908259157" duration="17840000" />
       <workItem from="1611933610742" duration="1291000" />
-      <workItem from="1611944032799" duration="4819000" />
+      <workItem from="1611944032799" duration="7390000" />
+      <workItem from="1612008258954" duration="1207000" />
+      <workItem from="1612023083232" duration="17000" />
+      <workItem from="1612031680599" duration="10625000" />
+      <workItem from="1612083684303" duration="24695000" />
+      <workItem from="1612282039215" duration="1749000" />
+      <workItem from="1612982460741" duration="2638000" />
+      <workItem from="1613306617698" duration="44000" />
+      <workItem from="1613325493877" duration="113000" />
+      <workItem from="1613330235078" duration="6000" />
     </task>
     <servers />
   </component>

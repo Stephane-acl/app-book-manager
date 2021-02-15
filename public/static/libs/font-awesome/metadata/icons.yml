@@ -20393,7 +20393,7 @@ nintendo-switch:
 node:
   changes:
     - 5.0.0
-  label: Node.js
+  label: Node.jsImport
   search:
     terms: []
   styles:
@@ -20404,7 +20404,7 @@ node-js:
   changes:
     - 5.0.0
     - 5.0.3
-  label: Node.js JS
+  label: Node.jsImport JS
   search:
     terms: []
   styles:
@@ -31800,7 +31800,7 @@ vr-cardboard:
 vuejs:
   changes:
     - 5.0.0
-  label: Vue.js
+  label: Vue.jsImport
   search:
     terms: []
   styles:
