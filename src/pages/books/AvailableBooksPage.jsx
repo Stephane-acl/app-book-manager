@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import ButtonActive from "../../components/ButtonActive";
 import Pagination from "../../components/Pagination";
 import API from "../../services/API";
-import moment from 'moment';
 import {Link} from "react-router-dom";
 import {toast} from "react-toastify";
 import TableLoader from "../../components/loaders/TableLoader";
@@ -20,7 +19,7 @@ const AvailableBooksPage = () => {
     const fetchBooks = async () => {
 
         try {
-            const data = await API.findAll('BOOKS',"?isAvailable=1" )
+            const data = await API.findAll('BOOKS', "?isAvailable=1")
             setBooks(data);
             setLoading(false);
         } catch (error) {
@@ -38,7 +37,7 @@ const AvailableBooksPage = () => {
         try {
             const newBook = {isAvailable: !book.isAvailable};
             await axios.put(BOOKS + "/" + book.id, newBook);
-            const response = await API.findAll('BOOKS',"?isAvailable=1" );
+            const response = await API.findAll('BOOKS', "?isAvailable=1");
             document.location.reload();
             setBooks(response.data["hydra:member"])
         } catch (error) {
@@ -66,82 +65,80 @@ const AvailableBooksPage = () => {
     const itemsPerPage = 10;
     const paginatedBooks = Pagination.getData(filteredBooks, currentPage, itemsPerPage);
 
-    // Formate la date
-    const formatDate = (str) => moment(str).format('DD/MM/YYYY');
-
     return (
         <>
-            <div className="mb-3 d-flex justify-content-between align-items-center">
-                <h1>Liste des livres disponibles</h1>
-                <Link to='/books/new' className='btn btn-primary'>Créer un livre</Link>
+            <div className="header-available">
+                <img src="/static/img/etageres.jpg" alt="Pile de livres"/>
+                <div className="section-header">
+                    <h1>Liste des livres disponibles</h1>
+                    <Link to='/books/new' className='btn-header'>Créer un livre</Link>
+                </div>
             </div>
+            <div className="container-85">
+                <div className="form-group">
+                    <input type='text' onChange={handleSearch} value={search} className="form-control input-search-book"
+                           placeholder="Rechercher ..."/>
+                </div>
 
-            <div className="form-group">
-                <input type='text' onChange={handleSearch} value={search} className="form-control"
-                       placeholder="Rechercher ..."/>
-            </div>
-
-            <table className="table table-hover">
-                <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Image</th>
-                    <th>Titre</th>
-                    <th>Langue</th>
-                    <th>Description</th>
-                    <th className="text-center">Nombre de Pages</th>
-                    <th>Auteur</th>
-                    <th className="text-center">Date de Publication</th>
-                    <th className="text-center">Disponible</th>
-                    <th></th>
-                </tr>
-                </thead>
-                {!loading && books.length > 0  ? (
-                    <tbody>
-                    {paginatedBooks.map(book =>
-                        <tr key={book.id}>
-                            <td>{book.id}</td>
-                            <td>
-                                <Link to={'/booksDetails/' + book.id}>
-                                    <img src={book.image} alt={book.title} height="120px"/>
-                                </Link>
-                            </td>
-                            <td>
-                                <Link to={'/books/' + book.id}>{book.title}</Link>
-                            </td>
-                            <td>{book.language}</td>
-                            <td>{book.description}</td>
-                            <td className="text-center">
-                                <span className="badge badge-primary p-2">{book.nbrPages}</span>
-                            </td>
-                            <td className="text-center">{book.author?.firstName} {book.author?.lastName}</td>
-                            <td className="text-center">{formatDate(book.dateOfPublication)}</td>
-                            <td className="text-center">
-                                {
-                                    book.isAvailable ? (
-                                        <img src="static/img/icons/check.svg" alt="check" height="35px"/>
-                                    ) : (
-                                        <img src="static/img/icons/uncheck.svg" alt="uncheck" height="35px"/>
-                                    )
-                                }
-                            </td>
-                            <td>
-                                <ButtonActive onClick={() => handleChange(book)} active={book.isAvailable}/>
-                            </td>
-                        </tr>
-                    )}
-                    </tbody>
+                {!loading && books.length > 0 ? (
+                    <div className="container-cards">
+                        {paginatedBooks.map(book =>
+                            <div className="container-card" key={book.id}>
+                                <div className="left-image zoom effect">
+                                    <Link to={'/booksDetails/' + book.id}>
+                                        <span>Voir</span>
+                                        <img src={book.image} alt={book.title}/>
+                                    </Link>
+                                </div>
+                                <div className="container-right">
+                                    <div className="right-first">
+                                        <div className="section">
+                                            <h6 className="title-card">{book.title}</h6>
+                                            <span className="status">
+                                            {
+                                                book.isAvailable ? (
+                                                    <> <span className="status__icon_green"/>Disponible</>
+                                                ) : (
+                                                    <> <span className="status__icon_red"/>Indisponible</>
+                                                )
+                                            }
+                                        </span>
+                                        </div>
+                                        <div className="section">
+                                            <span className="text-card">Langue</span>
+                                            <h6>{book.language}</h6>
+                                        </div>
+                                        <div className="section">
+                                            <span className="text-card">Auteur</span>
+                                            <h6>{book.author?.firstName} {book.author?.lastName}</h6>
+                                        </div>
+                                    </div>
+                                    <div className="right-second">
+                                        <div className="section">
+                                            <span className="text-card">Nombres de pages</span>
+                                            <h6 className="badge badge-primary p-2">{book.nbrPages}</h6>
+                                        </div>
+                                        <div className="section">
+                                            <Link to={'/books/' + book.id}>Modifier</Link>
+                                            <ButtonActive onClick={() => handleChange(book)} active={book.isAvailable}/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                    </div>
                 ) : (
                     <h2>Aucun livres disponible</h2>
                 )}
-            </table>
-            {loading && <TableLoader/>}
-            {
-                itemsPerPage < filteredBooks.length &&
-                <Pagination currentPage={currentPage} itemsPerPage={itemsPerPage} length={filteredBooks.length}
-                            onPageChanged={handlePageChange}
-                />
-            }
+
+                {loading && <TableLoader/>}
+                {
+                    itemsPerPage < filteredBooks.length &&
+                    <Pagination currentPage={currentPage} itemsPerPage={itemsPerPage} length={filteredBooks.length}
+                                onPageChanged={handlePageChange}
+                    />
+                }
+            </div>
         </>
     );
 }

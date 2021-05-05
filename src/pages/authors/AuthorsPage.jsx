@@ -50,7 +50,7 @@ console.log(authors)
             await API.delete(id);
             toast.success("L'auteur à bien été supprimé");
         } catch (error) {
-            toast.error("Une erreur est survenue");
+            toast.error("Vous ne pouvez pas supprimer un auteur qui a des livres");
             setAuthors(originalAuthors);
         }
     }
@@ -72,7 +72,6 @@ console.log(authors)
         <>
             <div className="mb-3 d-flex justify-content-between align-items-center">
                 <h1>Liste des Auteurs</h1>
-                <small>Attention si vous supprimez un auteur cela entrainera la suppression de ses livres</small>
                 <Link to='/authors/new' className='btn btn-primary'>Créer un auteur</Link>
             </div>
 
@@ -115,6 +114,7 @@ console.log(authors)
                 )}
             </table>
             {loading && <TableLoader/>}
+            {paginatedAuthors.length <= 0 && <h3>Aucun Résultat</h3>}
             {
                 itemsPerPage < filteredAuthors.length &&
                 <Pagination currentPage={currentPage} itemsPerPage={itemsPerPage} length={filteredAuthors.length}

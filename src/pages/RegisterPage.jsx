@@ -48,7 +48,7 @@ const RegisterPage = ({history}) => {
             setErrors({});
 
             toast.success("Vous venez de créer un utilisateur !");
-            history.replace('/login');
+            history.replace('/');
 
         } catch (error) {
             const {violations} = error.response.data;
@@ -103,7 +103,7 @@ const RegisterPage = ({history}) => {
             </form>
             <div className='form-group'>
                 <button type='submit' className='btn btn-success' onClick={handleSubmit}>Confirmation</button>
-                <Link to='/login' className='btn btn-link'>Retour</Link>
+                <Link to='/' className='btn btn-link'>Retour</Link>
             </div>
         </>
     )

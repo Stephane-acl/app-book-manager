@@ -3,8 +3,6 @@ import {toast} from "react-toastify";
 import Pagination from "../../components/Pagination";
 import TableLoader from "../../components/loaders/TableLoader";
 import API from "../../services/API";
-import ModalCreateCategory from "../../components/effects/ModalCreateCategory";
-import ModalEditCategory from "../../components/effects/ModalEditCategory";
 import {Link} from "react-router-dom";
 
 const CategoriesPage = ({match, history}) => {
@@ -14,16 +12,6 @@ const CategoriesPage = ({match, history}) => {
         const itemsPerPage = 10;
         const [search, setSearch] = useState("");
         const [loading, setLoading] = useState(true);
-        const [showModal, setShowModal] = useState(false);
-        const [showEditModal, setShowEditModal] = useState(false);
-
-        const openModal = () => {
-            setShowModal(prev => !prev);
-        };
-
-        const openEditModal = () => {
-            setShowEditModal(prev => !prev);
-        };
 
         // Récupération des categories auprès de l'API
         const fetchCategories = async () => {
@@ -77,8 +65,7 @@ const CategoriesPage = ({match, history}) => {
             <>
                 <div className="mb-3 d-flex justify-content-between align-items-center">
                     <h1>Liste des catégories</h1>
-                    <button className='btn btn-primary' onClick={openModal}>Créer une catégorie</button>
-                    <ModalCreateCategory showModal={showModal} setShowModal={setShowModal} history={history} match={match}/>
+                    <Link className='btn btn-primary' to={"/categories/new"}>Créer une catégorie</Link>
                 </div>
                 <div className="form-group">
                     <input type='text' onChange={handleSearch} value={search} className="form-control"

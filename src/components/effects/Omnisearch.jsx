@@ -80,14 +80,6 @@ const OmniSearch = ({id, titleTextSearch, arrowNav, history}) => {
         bookList.length === 0 ? e.preventDefault() : history.replace('/booksDetails/' + bookList[currentSelection].id);
     };
 
-
-    useEffect(() => {
-        const script = document.createElement('script');
-        script.src = <script src="../../../public/static/js/Base/indexHover.js"/>;
-        script.async = true;
-        document.body.appendChild(script);
-    }, []);
-
     return (
         <div id={id} className="omnisearch" onKeyDown={arrowNav ? handleKeys : undefined}>
             <div className="container">
@@ -119,25 +111,24 @@ const OmniSearch = ({id, titleTextSearch, arrowNav, history}) => {
                         </div>
                     </div>
                 </form>
-                <div ref={ref}>
-                    {isComponentVisible &&
-                    <div className="omnisearch-suggestions">
-                        <h6 className="heading">{bookList.length ? titleTextSearch : ""}</h6>
-                        <div className="body-imageEffect loading">
-                            <main>
-                                <ul className="menu list-unstyled">
-                                    {bookList &&
-                                    bookList.map((b, key) => (
-                                        <Fragment key={key}>
-                                            {key <= 9 && (
-                                                <li className={key === currentSelection ? "selected" : ""}>
-                                                    <button
-                                                        type="button"
-                                                        className="btn btn-link p-0"
-                                                        data-action="omnisearch-close"
-                                                        data-target={"#" + id}
-                                                    >
-                                                        <div className="menu__item" data-img="../2.jpg">
+                {isComponentVisible &&
+                <div className="omnisearch-suggestions" ref={ref}>
+                    <h6 className="heading">{bookList.length ? titleTextSearch : ""}</h6>
+                    <div className="body-imageEffect loading">
+                        <main>
+                            <ul className="menu list-unstyled">
+                                {bookList &&
+                                bookList.map((b, key) => (
+                                    <Fragment key={key}>
+                                        {key <= 9 && (
+                                            <li className={key === currentSelection ? "selected" : ""}>
+                                                <button
+                                                    type="button"
+                                                    className="btn btn-link p-0"
+                                                    data-action="omnisearch-close"
+                                                    data-target={"#" + id}
+                                                >
+                                                    <div className="menu__item" data-img="../2.jpg">
                                                          <span className="menu__item-text">
                                                              <span className="menu__item-textinner">
                                                                 <Link to={'/booksDetails/' + b.id}>
@@ -145,22 +136,23 @@ const OmniSearch = ({id, titleTextSearch, arrowNav, history}) => {
                                                                 </Link>
                                                              </span>
                                                          </span>
-                                                            <span className="menu__item-sub">{b.author?.firstName} {b.author?.lastName}</span>
-                                                        </div>
-                                                    </button>
-                                                </li>
-                                            )}
-                                        </Fragment>
-                                    ))}
-                                </ul>
-                            </main>
-                            {/* <svg className="cursor" width="40" height="40" viewBox="0 0 40 40">
-                                <circle className="cursor__inner" cx="20" cy="20" r="10"/>
-                            </svg> */}
-                        </div>
+                                                        {key === currentSelection &&
+                                                        <span className={key === currentSelection ? "menu__item-sub" : ""}>
+                                                            {b.author?.firstName} {b.author?.lastName}
+                                                        </span>
+                                                        }
+                                                    </div>
+                                                </button>
+                                            </li>
+                                        )}
+                                    </Fragment>
+                                ))}
+                                {bookList.length <=0 && <h3 className="no-result">Aucun résultat</h3>}
+                            </ul>
+                        </main>
                     </div>
-                    }
                 </div>
+                }
             </div>
         </div>
     )

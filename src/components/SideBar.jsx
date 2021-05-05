@@ -16,264 +16,334 @@ const SideBar = ({history}) => {
         history.replace('/login');
     }
 
-
- //   const themeMap = {
- //       dark: "light",
- //       light: "solar",
- //       solar: "dark"
- //   };
-//
- //   let tmp;
-//
- //   const theme = localStorage.getItem('theme')
- //       || ( tmp = Object.keys(themeMap)[0],
- //           localStorage.setItem('theme', tmp),
- //           tmp);
- //   const bodyClass = document.body.classList;
- //   bodyClass.add(theme);
-//
- //   function toggleTheme() {
- //       const current = localStorage.getItem('theme');
- //       const next = themeMap[current];
-//
- //       bodyClass.replace(current, next);
- //       localStorage.setItem('theme', next);
- //   }
-//
- //   document.getElementById('themeButton').onclick = toggleTheme;
-
     return (
-        <div className="sidebar-container">
-            <nav className="sidebar">
-                <ul className="sidebar-nav">
-                    <li className="logo">
-                        <a href="#" className="sidebar-nav-link">
-                            <span className="link-text-sidebar logo-text">Fireship</span>
-                            <svg
-                                aria-hidden="true"
-                                focusable="false"
-                                data-prefix="fad"
-                                data-icon="angle-double-right"
-                                role="img"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 448 512"
-                                className="svg-inline--fa fa-angle-double-right fa-w-14 fa-5x"
-                            >
-                                <g className="fa-group">
-                                    <path
-                                        fill="currentColor"
-                                        d="M224 273L88.37 409a23.78 23.78 0 0 1-33.8 0L32 386.36a23.94 23.94 0 0 1 0-33.89l96.13-96.37L32 159.73a23.94 23.94 0 0 1 0-33.89l22.44-22.79a23.78 23.78 0 0 1 33.8 0L223.88 239a23.94 23.94 0 0 1 .1 34z"
-                                        className="fa-secondary"
-                                    />
-                                    <path
-                                        fill="currentColor"
-                                        d="M415.89 273L280.34 409a23.77 23.77 0 0 1-33.79 0L224 386.26a23.94 23.94 0 0 1 0-33.89L320.11 256l-96-96.47a23.94 23.94 0 0 1 0-33.89l22.52-22.59a23.77 23.77 0 0 1 33.79 0L416 239a24 24 0 0 1-.11 34z"
-                                        className="fa-primary"
-                                    />
-                                </g>
-                            </svg>
-                        </a>
-                    </li>
+        <>
+            <div className="top-bar-mobile">
+                <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                   role="button"
+                   aria-haspopup="true" aria-expanded="false">
+                    Livres
+                </a>
+                <div className="dropdown-menu">
+                    <Link className="dropdown-item" to="/availableBooks">Livres disponibles</Link>
+                    <Link className="dropdown-item" to="/UnAvailableBooks">Livres
+                        indisponibles</Link>
+                    <div className="dropdown-divider"/>
+                    <Link className="dropdown-item" to='/books'>Tout mes livres</Link>
+                </div>
 
-                    <li className="sidebar-nav-item">
-                        <a href="#" className="sidebar-nav-link">
-                            <svg
-                                aria-hidden="true"
-                                focusable="false"
-                                data-prefix="fad"
-                                data-icon="cat"
-                                role="img"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 512 512"
-                                className="svg-inline--fa fa-cat fa-w-16 fa-9x"
-                            >
-                                <g className="fa-group">
-                                    <path
-                                        fill="currentColor"
-                                        d="M448 96h-64l-64-64v134.4a96 96 0 0 0 192 0V32zm-72 80a16 16 0 1 1 16-16 16 16 0 0 1-16 16zm80 0a16 16 0 1 1 16-16 16 16 0 0 1-16 16zm-165.41 16a204.07 204.07 0 0 0-34.59 2.89V272l-43.15-64.73a183.93 183.93 0 0 0-44.37 26.17L192 304l-60.94-30.47L128 272v-80a96.1 96.1 0 0 0-96-96 32 32 0 0 0 0 64 32 32 0 0 1 32 32v256a64.06 64.06 0 0 0 64 64h176a16 16 0 0 0 16-16v-16a32 32 0 0 0-32-32h-32l128-96v144a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16V289.86a126.78 126.78 0 0 1-32 4.54c-61.81 0-113.52-44.05-125.41-102.4z"
-                                        className="fa-secondary"
-                                    />
-                                    <path
-                                        fill="currentColor"
-                                        d="M376 144a16 16 0 1 0 16 16 16 16 0 0 0-16-16zm80 0a16 16 0 1 0 16 16 16 16 0 0 0-16-16zM131.06 273.53L192 304l-23.52-70.56a192.06 192.06 0 0 0-37.42 40.09zM256 272v-77.11a198.62 198.62 0 0 0-43.15 12.38z"
-                                        className="fa-primary"
-                                    />
-                                </g>
-                            </svg>
-                            <span className="link-text-sidebar">Cats</span>
-                        </a>
-                    </li>
+                <Link to='/categories'>Catégories</Link>
+                <Link to='/authors'>Auteurs</Link>
+            </div>
 
-                    <li className="sidebar-nav-item">
-                        <a href="#" className="sidebar-nav-link">
-                            <svg
-                                aria-hidden="true"
-                                focusable="false"
-                                data-prefix="fad"
-                                data-icon="alien-monster"
-                                role="img"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 576 512"
-                                className="svg-inline--fa fa-alien-monster fa-w-18 fa-9x"
-                            >
-                                <g className="fa-group">
-                                    <path
-                                        fill="currentColor"
-                                        d="M560,128H528a15.99954,15.99954,0,0,0-16,16v80H480V176a15.99954,15.99954,0,0,0-16-16H416V96h48a16.00079,16.00079,0,0,0,16-16V48a15.99954,15.99954,0,0,0-16-16H432a15.99954,15.99954,0,0,0-16,16V64H368a15.99954,15.99954,0,0,0-16,16v48H224V80a15.99954,15.99954,0,0,0-16-16H160V48a15.99954,15.99954,0,0,0-16-16H112A15.99954,15.99954,0,0,0,96,48V80a16.00079,16.00079,0,0,0,16,16h48v64H112a15.99954,15.99954,0,0,0-16,16v48H64V144a15.99954,15.99954,0,0,0-16-16H16A15.99954,15.99954,0,0,0,0,144V272a16.00079,16.00079,0,0,0,16,16H64v80a16.00079,16.00079,0,0,0,16,16h48v80a16.00079,16.00079,0,0,0,16,16h96a16.00079,16.00079,0,0,0,16-16V432a15.99954,15.99954,0,0,0-16-16H192V384H384v32H336a15.99954,15.99954,0,0,0-16,16v32a16.00079,16.00079,0,0,0,16,16h96a16.00079,16.00079,0,0,0,16-16V384h48a16.00079,16.00079,0,0,0,16-16V288h48a16.00079,16.00079,0,0,0,16-16V144A15.99954,15.99954,0,0,0,560,128ZM224,320H160V224h64Zm192,0H352V224h64Z"
-                                        className="fa-secondary"
-                                    />
-                                    <path
-                                        fill="currentColor"
-                                        d="M160,320h64V224H160Zm192-96v96h64V224Z"
-                                        className="fa-primary"
-                                    />
-                                </g>
-                            </svg>
-                            <span className="link-text-sidebar">Aliens</span>
-                        </a>
-                    </li>
+            <div className="sidebar-container">
+                <nav className="sidebar">
+                    <ul className="sidebar-nav">
+                        <li className="logo-mobile sidebar-nav-item">
+                            <Link className='sidebar-nav-link' to='/'>B</Link>
+                        </li>
+                        <li className="logo display-none-mobile">
+                            <a href="#" className="sidebar-nav-link">
+                                <Link to='/' className="link-text-sidebar logo-text">Book Manager</Link>
+                                <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fad"
+                                    data-icon="angle-double-right"
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 448 512"
+                                    className="svg-inline--fa fa-angle-double-right fa-w-6 fa-5x"
+                                >
+                                    <g className="fa-group">
+                                        <path
+                                            fill="currentColor"
+                                            d="M224 273L88.37 409a23.78 23.78 0 0 1-33.8 0L32 386.36a23.94 23.94 0 0 1 0-33.89l96.13-96.37L32 159.73a23.94 23.94 0 0 1 0-33.89l22.44-22.79a23.78 23.78 0 0 1 33.8 0L223.88 239a23.94 23.94 0 0 1 .1 34z"
+                                            className="fa-secondary"
+                                        />
+                                        <path
+                                            fill="currentColor"
+                                            d="M415.89 273L280.34 409a23.77 23.77 0 0 1-33.79 0L224 386.26a23.94 23.94 0 0 1 0-33.89L320.11 256l-96-96.47a23.94 23.94 0 0 1 0-33.89l22.52-22.59a23.77 23.77 0 0 1 33.79 0L416 239a24 24 0 0 1-.11 34z"
+                                            className="fa-primary"
+                                        />
+                                    </g>
+                                </svg>
+                            </a>
+                        </li>
 
-                    <li className="sidebar-nav-item">
-                        <a href="#" className="sidebar-nav-link">
-                            <svg
-                                aria-hidden="true"
-                                focusable="false"
-                                data-prefix="fad"
-                                data-icon="space-station-moon-alt"
-                                role="img"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 512 512"
-                                className="svg-inline--fa fa-space-station-moon-alt fa-w-16 fa-5x"
-                            >
-                                <g className="fa-group">
-                                    <path
-                                        fill="currentColor"
-                                        d="M501.70312,224H448V160H368V96h48V66.67383A246.86934,246.86934,0,0,0,256,8C119.03125,8,8,119.0332,8,256a250.017,250.017,0,0,0,1.72656,28.26562C81.19531,306.76953,165.47656,320,256,320s174.80469-13.23047,246.27344-35.73438A250.017,250.017,0,0,0,504,256,248.44936,248.44936,0,0,0,501.70312,224ZM192,240a80,80,0,1,1,80-80A80.00021,80.00021,0,0,1,192,240ZM384,343.13867A940.33806,940.33806,0,0,1,256,352c-87.34375,0-168.71094-11.46094-239.28906-31.73633C45.05859,426.01953,141.29688,504,256,504a247.45808,247.45808,0,0,0,192-91.0918V384H384Z"
-                                        className="fa-secondary"
-                                    />
-                                    <path
-                                        fill="currentColor"
-                                        d="M256,320c-90.52344,0-174.80469-13.23047-246.27344-35.73438a246.11376,246.11376,0,0,0,6.98438,35.998C87.28906,340.53906,168.65625,352,256,352s168.71094-11.46094,239.28906-31.73633a246.11376,246.11376,0,0,0,6.98438-35.998C430.80469,306.76953,346.52344,320,256,320Zm-64-80a80,80,0,1,0-80-80A80.00021,80.00021,0,0,0,192,240Zm0-104a24,24,0,1,1-24,24A23.99993,23.99993,0,0,1,192,136Z"
-                                        className="fa-primary"
-                                    />
-                                </g>
-                            </svg>
-                            <span className="link-text-sidebar">Space</span>
-                        </a>
-                    </li>
 
-                    <li className="sidebar-nav-item">
-                        <a href="#" className="sidebar-nav-link">
-                            <svg
-                                aria-hidden="true"
-                                focusable="false"
-                                data-prefix="fad"
-                                data-icon="space-shuttle"
-                                role="img"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 640 512"
-                                className="svg-inline--fa fa-space-shuttle fa-w-20 fa-5x"
-                            >
-                                <g className="fa-group">
-                                    <path
-                                        fill="currentColor"
-                                        d="M32 416c0 35.35 21.49 64 48 64h16V352H32zm154.54-232h280.13L376 168C243 140.59 222.45 51.22 128 34.65V160h18.34a45.62 45.62 0 0 1 40.2 24zM32 96v64h64V32H80c-26.51 0-48 28.65-48 64zm114.34 256H128v125.35C222.45 460.78 243 371.41 376 344l90.67-16H186.54a45.62 45.62 0 0 1-40.2 24z"
-                                        className="fa-secondary"
-                                    />
-                                    <path
-                                        fill="currentColor"
-                                        d="M592.6 208.24C559.73 192.84 515.78 184 472 184H186.54a45.62 45.62 0 0 0-40.2-24H32c-23.2 0-32 10-32 24v144c0 14 8.82 24 32 24h114.34a45.62 45.62 0 0 0 40.2-24H472c43.78 0 87.73-8.84 120.6-24.24C622.28 289.84 640 272 640 256s-17.72-33.84-47.4-47.76zM488 296a8 8 0 0 1-8-8v-64a8 8 0 0 1 8-8c31.91 0 31.94 80 0 80z"
-                                        className="fa-primary"
-                                    />
-                                </g>
-                            </svg>
-                            <span className="link-text-sidebar">Shuttle</span>
-                        </a>
-                    </li>
+                        <li className="sidebar-nav-item display-none-mobile dropdown">
+                            <a className="sidebar-nav-link nav-link" href="#!">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    id="svg31"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fad"
+                                    data-icon="book"
+                                    role="img"
+                                    version="1.1"
+                                    height="512"
+                                    width="512"
+                                    viewBox="0 0 64 64"
+                                    fill="#F8F8FB"
+                                    className="svg-inline--fa fa-w-6 fa-9x">
 
-                    <li className="sidebar-nav-item" id="themeButton">
-                        <a href="#" className="sidebar-nav-link">
-                            <svg
-                                className="theme-icon"
-                                id="lightIcon"
-                                aria-hidden="true"
-                                focusable="false"
-                                data-prefix="fad"
-                                data-icon="moon-stars"
-                                role="img"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 512 512"
-                                className="svg-inline--fa fa-moon-stars fa-w-16 fa-7x"
-                            >
-                                <g className="fa-group">
                                     <path
-                                        fill="currentColor"
-                                        d="M320 32L304 0l-16 32-32 16 32 16 16 32 16-32 32-16zm138.7 149.3L432 128l-26.7 53.3L352 208l53.3 26.7L432 288l26.7-53.3L512 208z"
+                                        id="path2"
+                                        d="M61,16a1,1,0,0,0-1,1V53H54.57a85.082,85.082,0,0,0-19.12,2.178,1.992,1.992,0,0,1-2.1-.834A22.732,22.732,0,0,1,45.211,51H57a1,1,0,0,0,1-1V43a1,1,0,0,0-2,0v6H45.211A24.728,24.728,0,0,0,33,52.212V25a1,1,0,0,0-2,0V52.211A24.724,24.724,0,0,0,18.789,49H8V13H23.4A7.605,7.605,0,0,1,31,20.605a1,1,0,1,0,2,0A7.605,7.605,0,0,1,40.6,13H56V39a1,1,0,0,0,2,0V12a1,1,0,0,0-1-1H40.6A9.613,9.613,0,0,0,32,16.332,9.613,9.613,0,0,0,23.4,11H7a1,1,0,0,0-1,1V50a1,1,0,0,0,1,1H18.789a22.732,22.732,0,0,1,11.863,3.344,2,2,0,0,1-2.1.834A85.069,85.069,0,0,0,9.43,53H4V17a1,1,0,0,0-2,0V54a1,1,0,0,0,1,1H9.43A83.117,83.117,0,0,1,28.1,57.127,3.98,3.98,0,0,0,32,55.859a3.978,3.978,0,0,0,3.9,1.268A83.145,83.145,0,0,1,54.57,55H61a1,1,0,0,0,1-1V17A1,1,0,0,0,61,16Z"
+                                        className="fa-primary"
+                                    />
+                                    <path
+                                        id="path4"
+                                        d="M28.723,19.613A9.579,9.579,0,0,0,23.4,18H12a1,1,0,0,0,0,2H23.4a7.576,7.576,0,0,1,4.218,1.277,1,1,0,1,0,1.11-1.664Z"
                                         className="fa-secondary"
                                     />
                                     <path
-                                        fill="currentColor"
-                                        d="M332.2 426.4c8.1-1.6 13.9 8 8.6 14.5a191.18 191.18 0 0 1-149 71.1C85.8 512 0 426 0 320c0-120 108.7-210.6 227-188.8 8.2 1.6 10.1 12.6 2.8 16.7a150.3 150.3 0 0 0-76.1 130.8c0 94 85.4 165.4 178.5 147.7z"
-                                        className="fa-primary"
-                                    />
-                                </g>
-                            </svg>
-                            <svg
-                                className="theme-icon"
-                                id="solarIcon"
-                                aria-hidden="true"
-                                focusable="false"
-                                data-prefix="fad"
-                                data-icon="sun"
-                                role="img"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 512 512"
-                                className="svg-inline--fa fa-sun fa-w-16 fa-7x"
-                            >
-                                <g className="fa-group">
-                                    <path
-                                        fill="currentColor"
-                                        d="M502.42 240.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.41-94.8a17.31 17.31 0 0 0-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4a17.31 17.31 0 0 0 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.41-33.5 47.3 94.7a17.31 17.31 0 0 0 31 0l47.31-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3a17.33 17.33 0 0 0 .2-31.1zm-155.9 106c-49.91 49.9-131.11 49.9-181 0a128.13 128.13 0 0 1 0-181c49.9-49.9 131.1-49.9 181 0a128.13 128.13 0 0 1 0 181z"
+                                        id="path6"
+                                        d="M52,18H40.6a9.581,9.581,0,0,0-5.328,1.613,1,1,0,0,0,1.11,1.664A7.581,7.581,0,0,1,40.6,20H52a1,1,0,0,0,0-2Z"
                                         className="fa-secondary"
                                     />
                                     <path
-                                        fill="currentColor"
-                                        d="M352 256a96 96 0 1 1-96-96 96.15 96.15 0 0 1 96 96z"
-                                        className="fa-primary"
-                                    />
-                                </g>
-                            </svg>
-                            <svg
-                                className="theme-icon"
-                                id="darkIcon"
-                                aria-hidden="true"
-                                focusable="false"
-                                data-prefix="fad"
-                                data-icon="sunglasses"
-                                role="img"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 576 512"
-                                className="svg-inline--fa fa-sunglasses fa-w-18 fa-7x"
-                            >
-                                <g className="fa-group">
-                                    <path
-                                        fill="currentColor"
-                                        d="M574.09 280.38L528.75 98.66a87.94 87.94 0 0 0-113.19-62.14l-15.25 5.08a16 16 0 0 0-10.12 20.25L395.25 77a16 16 0 0 0 20.22 10.13l13.19-4.39c10.87-3.63 23-3.57 33.15 1.73a39.59 39.59 0 0 1 20.38 25.81l38.47 153.83a276.7 276.7 0 0 0-81.22-12.47c-34.75 0-74 7-114.85 26.75h-73.18c-40.85-19.75-80.07-26.75-114.85-26.75a276.75 276.75 0 0 0-81.22 12.45l38.47-153.8a39.61 39.61 0 0 1 20.38-25.82c10.15-5.29 22.28-5.34 33.15-1.73l13.16 4.39A16 16 0 0 0 180.75 77l5.06-15.19a16 16 0 0 0-10.12-20.21l-15.25-5.08A87.95 87.95 0 0 0 47.25 98.65L1.91 280.38A75.35 75.35 0 0 0 0 295.86v70.25C0 429 51.59 480 115.19 480h37.12c60.28 0 110.38-45.94 114.88-105.37l2.93-38.63h35.76l2.93 38.63c4.5 59.43 54.6 105.37 114.88 105.37h37.12C524.41 480 576 429 576 366.13v-70.25a62.67 62.67 0 0 0-1.91-15.5zM203.38 369.8c-2 25.9-24.41 46.2-51.07 46.2h-37.12C87 416 64 393.63 64 366.11v-37.55a217.35 217.35 0 0 1 72.59-12.9 196.51 196.51 0 0 1 69.91 12.9zM512 366.13c0 27.5-23 49.87-51.19 49.87h-37.12c-26.69 0-49.1-20.3-51.07-46.2l-3.12-41.24a196.55 196.55 0 0 1 69.94-12.9A217.41 217.41 0 0 1 512 328.58z"
+                                        id="path8"
+                                        d="M28.723,24.613A9.579,9.579,0,0,0,23.4,23H12a1,1,0,0,0,0,2H23.4a7.576,7.576,0,0,1,4.218,1.277,1,1,0,1,0,1.11-1.664Z"
                                         className="fa-secondary"
                                     />
                                     <path
-                                        fill="currentColor"
-                                        d="M64.19 367.9c0-.61-.19-1.18-.19-1.8 0 27.53 23 49.9 51.19 49.9h37.12c26.66 0 49.1-20.3 51.07-46.2l3.12-41.24c-14-5.29-28.31-8.38-42.78-10.42zm404-50l-95.83 47.91.3 4c2 25.9 24.38 46.2 51.07 46.2h37.12C489 416 512 393.63 512 366.13v-37.55a227.76 227.76 0 0 0-43.85-10.66z"
+                                        id="path10"
+                                        d="M52,23H40.6a9.581,9.581,0,0,0-5.328,1.613,1,1,0,0,0,1.11,1.664A7.581,7.581,0,0,1,40.6,25H52a1,1,0,0,0,0-2Z"
+                                        className="fa-secondary"
+                                    />
+                                    <path
+                                        id="path12"
+                                        d="M28.723,29.613A9.579,9.579,0,0,0,23.4,28H12a1,1,0,0,0,0,2H23.4a7.576,7.576,0,0,1,4.218,1.277,1,1,0,1,0,1.11-1.664Z"
+                                        className="fa-secondary"
+                                    />
+                                    <path
+                                        id="path14"
+                                        d="M52,28H40.6a9.581,9.581,0,0,0-5.328,1.613,1,1,0,0,0,1.11,1.664A7.581,7.581,0,0,1,40.6,30H52a1,1,0,0,0,0-2Z"
+                                        className="fa-secondary"
+                                    />
+                                    <path
+                                        id="path16"
+                                        d="M28.723,34.613A9.579,9.579,0,0,0,23.4,33H12a1,1,0,0,0,0,2H23.4a7.576,7.576,0,0,1,4.218,1.277,1,1,0,1,0,1.11-1.664Z"
+                                        className="fa-secondary"
+                                    />
+                                    <path
+                                        id="path18"
+                                        d="M52,33H40.6a9.581,9.581,0,0,0-5.328,1.613,1,1,0,0,0,1.11,1.664A7.581,7.581,0,0,1,40.6,35H52a1,1,0,0,0,0-2Z"
+                                        className="fa-secondary"
+                                    />
+                                    <path
+                                        id="path20"
+                                        d="M28.723,39.613A9.579,9.579,0,0,0,23.4,38H12a1,1,0,0,0,0,2H23.4a7.576,7.576,0,0,1,4.218,1.277,1,1,0,1,0,1.11-1.664Z"
+                                        className="fa-secondary"
+                                    />
+                                    <path
+                                        id="path22"
+                                        d="M52,38H40.6a9.581,9.581,0,0,0-5.328,1.613,1,1,0,0,0,1.11,1.664A7.581,7.581,0,0,1,40.6,40H52a1,1,0,0,0,0-2Z"
+                                        className="fa-secondary"
+                                    />
+                                    <path
+                                        id="path24"
+                                        d="M23.4,43H12a1,1,0,0,0,0,2H23.4a7.576,7.576,0,0,1,4.218,1.277,1,1,0,1,0,1.11-1.664A9.579,9.579,0,0,0,23.4,43Z"
+                                        className="fa-secondary"
+                                    />
+                                    <path
+                                        id="path26"
+                                        d="M52,43H40.6a9.581,9.581,0,0,0-5.328,1.613,1,1,0,0,0,1.11,1.664A7.581,7.581,0,0,1,40.6,45H52a1,1,0,0,0,0-2Z"
+                                        className="fa-secondary"
+                                    />
+                                </svg>
+                                <div className="nav-item dropdown link-text-sidebar">
+                                    <a className="dropdown-toggle" data-toggle="dropdown"
+                                       href="#"
+                                       role="button"
+                                       aria-haspopup="true"
+                                       aria-expanded="false">
+                                        <span>Livres</span>
+                                    </a>
+                                    <div className="dropdown-menu">
+                                        <Link className="dropdown-item" to="/availableBooks">Livres disponibles</Link>
+                                        <Link className="dropdown-item" to="/UnAvailableBooks">
+                                            Livres indisponibles
+                                        </Link>
+                                        <div className="dropdown-divider"/>
+                                        <Link className="dropdown-item" to='/books'>Tout mes livres</Link>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li className="sidebar-nav-item display-none-mobile">
+                            <Link to='/authors' className="sidebar-nav-link">
+                                <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fad"
+                                    data-icon="pen"
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    style={{background: "new 0 0 334.876 334.876;"}}
+                                    viewBox="0 0 334.876 334.876"
+                                    y="0px"
+                                    x="0px"
+                                    id="Capa_1"
+                                    version="1.1"
+                                    className="svg-inline--fa fa-w-6 fa-9x"
+                                >
+                                    <g id="g8">
+                                        <path
+                                            id="path2"
+                                            d="M35.243,94.888c12.885,19.483,24.198,42.637,25.982,46.618c0.511,1.148,1.316,3.856,2.219,7.169   c6.282-8.877,13.946-16.214,23.105-21.599c13.07-7.68,28.093-10.845,44.312-10.084c-3.916-6.217-7.479-12.619-9.192-17.601   c-4.4-12.776-20.348-65.53-29.676-88.053c-9.323-22.523-44.834-6.494-65.47,5.238S4.73,42.765,6.829,46.747   C8.923,50.728,22.358,75.405,35.243,94.888z"
+                                            fill="#F8F8FB"
+                                            className="fa-primary"
+                                        />
+                                        <path
+                                            id="path4"
+                                            d="M114.37,167.478c27.446-11.313,33.314,2.41,33.314,2.41c8.697-8.066,2.622-17.601,2.622-17.601   s2.197-4.085-1.36-8.278c-2.176-2.556-9.187-11.835-15.322-21.582c-16.219-0.761-31.242,2.404-44.312,10.084   c-9.159,5.385-16.823,12.717-23.105,21.599c2.235,8.186,5.102,20.179,5.847,22.268c1.05,2.932,3.769,6.913,6.288,7.435   c2.513,0.522,3.981,2.932,3.981,2.932c3.247,6.598,13.407,7.016,13.407,7.016S86.919,178.791,114.37,167.478z"
+                                            fill="#F8F8FB"
+                                            className="fa-primary"
+                                        />
+                                        <path
+                                            id="path6"
+                                            d="M319.156,225.659c-8.409-6.576-19.662-9.736-28.631-15.556   c-23.187-15.044,6.848-28.903,16.79-37.867c16.883-15.219,21.316-32.754,14.326-54.048c-2.186-6.663-6.924-13.69-4.737-7.033   c11.95,36.42-26.026,53.825-45.313,74.189c-7.103,7.5-6.124,15.632,1.256,23.116c14.278,14.479,57.23,26.7,30.606,49.207   c-18.661,15.773-47.624,17.187-68.309,30.508c-2.796,1.8-3.122,6.641-0.31,8.61c20.315,14.207,48.44,10.786,68.456,23.687   c-34.527,10.389-70.746,3.612-106.252,0.359c0.141-1.006,0.016-1.86,0.016-1.86c-4.514-27.658-4.971-33.657-2.877-47.488   c2.094-13.826,0-15.088,0-15.088c-21.37-29.333-47.331-84.73-47.331-84.73c-3.459-5.76-17.182-8.202-34.152-0.631   c-17.601,7.859-16.344,18.645-16.344,18.645l29.86,88.026c1.05,2.828,5.869,4.188,5.869,4.188   c27.973,8.066,50.774,36.333,53.814,40.733c3.04,4.4,5.238,2.725,5.238,2.725l-32.623-73.063c-2.491-0.571-5.031-2.736-6.527-5.945   c-2.165-4.65-1.305-9.633,1.92-11.134c3.225-1.501,7.593,1.05,9.758,5.7c1.632,3.503,1.539,7.19,0.022,9.442l31.101,70.273   c-0.228-0.022-0.457-0.044-0.685-0.065c-6.94-0.598,0.343,8.262,19.842,10.71c43.458,5.455,60.455,5.118,102.336-3.753   c4.297-0.908,4.373-6.396,1.55-9.274c-18.547-18.928-45.704-14.892-67.939-25.232C278.173,281.1,355.778,254.301,319.156,225.659z"
+                                            fill="#F8F8FB"
+                                            className="fa-secondary"
+                                        />
+                                    </g>
+                                </svg>
+                                <span className="link-text-sidebar">Auteurs</span>
+                            </Link>
+                        </li>
+
+                        <li className="sidebar-nav-item display-none-mobile">
+                            <Link to='/categories' className="sidebar-nav-link">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    id="svg14"
+                                    version="1.1"
+                                    width="512pt"
+                                    viewBox="0 -52 512.00001 512"
+                                    height="512pt"
+                                    fill="#F8F8FB"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fad"
+                                    data-icon="list"
+                                    role="img"
+                                    className="svg-inline--fa fa-w-6 fa-9x"
+                                >
+                                    <path
+                                        id="path2"
+                                        d="m0 113.292969h113.292969v-113.292969h-113.292969zm30.003906-83.289063h53.289063v53.289063h-53.289063zm0 0"
                                         className="fa-primary"
                                     />
-                                </g>
-                            </svg>
-                            <span className="link-text-sidebar">Themify</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+                                    <path
+                                        id="path4"
+                                        d="m149.296875 0v113.292969h362.703125v-113.292969zm332.699219 83.292969h-302.695313v-53.289063h302.695313zm0 0"
+                                        className="fa-secondary"
+                                    />
+                                    <path
+                                        id="path6"
+                                        d="m0 260.300781h113.292969v-113.292969h-113.292969zm30.003906-83.292969h53.289063v53.289063h-53.289063zm0 0"
+                                        className="fa-primary"
+                                    />
+                                    <path
+                                        id="path8"
+                                        d="m149.296875 260.300781h362.703125v-113.292969h-362.703125zm30.003906-83.292969h302.695313v53.289063h-302.695313zm0 0"
+                                        className="fa-secondary"
+                                    />
+                                    <path
+                                        id="path10"
+                                        d="m0 407.308594h113.292969v-113.296875h-113.292969zm30.003906-83.292969h53.289063v53.289063h-53.289063zm0 0"
+                                        className="fa-primary"
+                                    />
+                                    <path
+                                        id="path12"
+                                        d="m149.296875 407.308594h362.703125v-113.296875h-362.703125zm30.003906-83.292969h302.695313v53.289063h-302.695313zm0 0"
+                                        className="fa-secondary"
+                                    />
+                                </svg>
+                                <span className="link-text-sidebar">Catégories</span>
+                            </Link>
+                        </li>
+
+                        <li className="sidebar-nav-item dropdown">
+                            <a className="sidebar-nav-link nav-link" href="#!">
+                                <svg
+                                    version="1.1"
+                                    id="Layer_1"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"
+                                    fill="#F8F8FB"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fad"
+                                    data-icon="user"
+                                    role="img"
+                                    className="svg-inline--fa fa-w-6 fa-9x"
+                                >
+                                    <path
+                                        d="M256,0c-74.439,0-135,60.561-135,135s60.561,135,135,135s135-60.561,135-135S330.439,0,256,0z"
+                                        className="fa-secondary"/>
+
+                                    <path d="M423.966,358.195C387.006,320.667,338.009,300,286,300h-60c-52.008,0-101.006,20.667-137.966,58.195
+			                            C51.255,395.539,31,444.833,31,497c0,8.284,6.716,15,15,15h420c8.284,0,15-6.716,15-15
+			                            C481,444.833,460.745,395.539,423.966,358.195z"
+                                          className="fa-primary"
+                                    />
+                                </svg>
+                                <div className="nav-item dropdown link-text-sidebar">
+                                    <a className="dropdown-toggle" href="#" role="button"
+                                       aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">
+                                        <span>{user.firstName} {user.lastName}</span>
+                                    </a>
+                                    <div className="dropdown-menu">
+                                        {/* Bouton nouveau membre */}
+                                        {isAuthenticated && haveRole(user, "MANAGER") && (
+                                            <>
+                                                <Link className="dropdown-item" to="/register">
+                                                    Ajouter un utilisateur
+                                                </Link>
+                                                <Link className="dropdown-item" to={"/library/" + library.id}>
+                                                    Modifier sa librairie
+                                                </Link>
+                                            </>
+                                        )}
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li className="sidebar-nav-item">
+                            <a href="#" className="sidebar-nav-link">
+                                {
+                                    (isAuthenticated && (
+                                        <div onClick={handleLogout}>
+                                            <svg viewBox="0 0 512.016 512" width="512pt"
+                                                 xmlns="http://www.w3.org/2000/svg" fill="#F8F8FB">
+                                                <path
+                                                    d="m496 240.007812h-202.667969c-8.832031 0-16-7.167968-16-16 0-8.832031 7.167969-16 16-16h202.667969c8.832031 0 16 7.167969 16 16 0 8.832032-7.167969 16-16 16zm0 0"/>
+                                                <path
+                                                    d="m416 320.007812c-4.097656 0-8.191406-1.558593-11.308594-4.691406-6.25-6.253906-6.25-16.386718 0-22.636718l68.695313-68.691407-68.695313-68.695312c-6.25-6.25-6.25-16.382813 0-22.632813 6.253906-6.253906 16.386719-6.253906 22.636719 0l80 80c6.25 6.25 6.25 16.382813 0 22.632813l-80 80c-3.136719 3.15625-7.230469 4.714843-11.328125 4.714843zm0 0"/>
+                                                <path
+                                                    d="m170.667969 512.007812c-4.566407 0-8.898438-.640624-13.226563-1.984374l-128.386718-42.773438c-17.46875-6.101562-29.054688-22.378906-29.054688-40.574219v-384c0-23.53125 19.136719-42.6679685 42.667969-42.6679685 4.5625 0 8.894531.6406255 13.226562 1.9843755l128.382813 42.773437c17.472656 6.101563 29.054687 22.378906 29.054687 40.574219v384c0 23.53125-19.132812 42.667968-42.664062 42.667968zm-128-480c-5.867188 0-10.667969 4.800782-10.667969 10.667969v384c0 4.542969 3.050781 8.765625 7.402344 10.28125l127.785156 42.582031c.917969.296876 2.113281.46875 3.480469.46875 5.867187 0 10.664062-4.800781 10.664062-10.667968v-384c0-4.542969-3.050781-8.765625-7.402343-10.28125l-127.785157-42.582032c-.917969-.296874-2.113281-.46875-3.476562-.46875zm0 0"/>
+                                                <path
+                                                    d="m325.332031 170.675781c-8.832031 0-16-7.167969-16-16v-96c0-14.699219-11.964843-26.667969-26.664062-26.667969h-240c-8.832031 0-16-7.167968-16-16 0-8.832031 7.167969-15.9999995 16-15.9999995h240c32.363281 0 58.664062 26.3046875 58.664062 58.6679685v96c0 8.832031-7.167969 16-16 16zm0 0"/>
+                                                <path
+                                                    d="m282.667969 448.007812h-85.335938c-8.832031 0-16-7.167968-16-16 0-8.832031 7.167969-16 16-16h85.335938c14.699219 0 26.664062-11.96875 26.664062-26.667968v-96c0-8.832032 7.167969-16 16-16s16 7.167968 16 16v96c0 32.363281-26.300781 58.667968-58.664062 58.667968zm0 0"/>
+                                            </svg>
+                                            <span className="link-text-sidebar">Deconnexion</span>
+                                        </div>
+                                    ))
+                                }
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </>
     );
 }
 

@@ -8,6 +8,7 @@ import {toast} from "react-toastify";
 const CategoryPage = ({match, history}) => {
 
     const {id} = match.params;
+    const [editing, setEditing] = useState(false);
     const [loading, setLoading] = useState(false);
     const [category, setCategory] = useState({
         name: ""
@@ -32,8 +33,11 @@ const CategoryPage = ({match, history}) => {
 
     // Récupération de la bonne catégorie lorsque l'id change dans l'url
     useEffect(() => {
+        if (id !== "new") {
             fetchCategory(id);
+            setEditing(true);
             setLoading(true)
+        }
     }, [id]);
 
     // Gestion des changements des inputs dans le formulaire
@@ -46,9 +50,15 @@ const CategoryPage = ({match, history}) => {
     // Gestion de la soumission du formulaire
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        if (editing) {
+            await API.updateAuthor(id, category);
+            toast.success("La catégorie à bien été modifiée");
+        } else {
             try {
-                await API.updateCategory(id, category);
-                toast.success("La catégorie à bien été modifiée");
+                await API.createCategory(category);
+                toast.success("La catégorie à bien été crée");
+                history.replace('/categories');
             } catch ({response}) {
                 const {violations} = response.data;
                 if (violations) {
@@ -57,14 +67,16 @@ const CategoryPage = ({match, history}) => {
                         apiErrors[violation.propertyPath] = violation.message;
                     });
                     setErrors(apiErrors);
-                    toast.error("Une erreur dans votre formulaire");
+                    toast.error("Des erreurs dans votre formulaire");
                 }
             }
         }
+    }
 
     return (
         <>
-          <h1>Modification d'une catégorie</h1>
+            {/* eslint-disable-next-line no-mixed-operators */}
+            {!editing && <h1>Création d'une catégorie</h1> || <h1>Modification d'une catégorie</h1>}
             {!loading && (
                 <form onSubmit={handleSubmit}>
                     <Field name="name"

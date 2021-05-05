@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react";
 import './App.scss';
 import {BrowserRouter as Router, Switch, withRouter} from "react-router-dom";
 
-import TopBar from "./components/TopBar";
 import HomePage from "./pages/HomePage";
 import BooksPage from "./pages/books/BooksPage";
 import BookPage from "./pages/books/BookPage";
@@ -23,8 +22,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import UsersAPI from "./services/UsersAPI";
 import AvailableBooksPage from "./pages/books/AvailableBooksPage";
 import UnAvailableBooksPage from "./pages/books/UnAvailableBooksPage";
-import LibraryPage from "./pages/Library/LibraryPage";
+import LibraryPage from "./pages/library/LibraryPage";
 import API from "./services/API";
+import SideBar from "./components/SideBar";
 
 AuthApi.setup();
 
@@ -59,28 +59,30 @@ function App() {
         loadLibrarydata();
     }, []);
 
-console.log(library)
-    const NavBarWithRouter = withRouter(TopBar);
+    console.log(library)
+    const NavBarWithRouter = withRouter(SideBar);
 
     return (
         <AuthContext.Provider value={{isAuthenticated, setIsAuthenticated, user, library}}>
             <Router>
                 {isAuthenticated && (<NavBarWithRouter/>)}
-                <Switch>
-                    <PrivateLoginRoute exact path="/login" component={LoginPage}/>
-                    <PrivateManagerRoute exact path="/register" component={RegisterPage}/>
-                    <PrivateManagerRoute exact path="/library/:id" component={LibraryPage}/>
-                    <PrivateRoute exact path="/categories" component={CategoriesPage}/>
-                    <PrivateRoute exact path="/categories/:id" component={CategoryPage}/>
-                    <PrivateRoute exact path="/authors/:id" component={AuthorPage}/>
-                    <PrivateRoute exact path="/authors" component={AuthorsPage}/>
-                    <PrivateRoute exact path="/availableBooks" component={AvailableBooksPage}/>
-                    <PrivateRoute exact path="/UnAvailableBooks" component={UnAvailableBooksPage}/>
-                    <PrivateRoute exact path="/booksDetails/:id" component={BookDetailsPage}/>
-                    <PrivateRoute exact path="/books/:id" component={BookPage}/>
-                    <PrivateRoute exact path="/books" component={BooksPage}/>
-                    <PrivateRoute exact path='/' component={HomePage}/>
-                </Switch>
+                <div className="main-container">
+                    <Switch>
+                        <PrivateLoginRoute exact path="/login" component={LoginPage}/>
+                        <PrivateManagerRoute exact path="/register" component={RegisterPage}/>
+                        <PrivateManagerRoute exact path="/library/:id" component={LibraryPage}/>
+                        <PrivateRoute exact path="/categories" component={CategoriesPage}/>
+                        <PrivateRoute exact path="/categories/:id" component={CategoryPage}/>
+                        <PrivateRoute exact path="/authors/:id" component={AuthorPage}/>
+                        <PrivateRoute exact path="/authors" component={AuthorsPage}/>
+                        <PrivateRoute exact path="/availableBooks" component={AvailableBooksPage}/>
+                        <PrivateRoute exact path="/UnAvailableBooks" component={UnAvailableBooksPage}/>
+                        <PrivateRoute exact path="/booksDetails/:id" component={BookDetailsPage}/>
+                        <PrivateRoute exact path="/books/:id" component={BookPage}/>
+                        <PrivateRoute exact path="/books" component={BooksPage}/>
+                        <PrivateRoute exact path='/' component={HomePage}/>
+                    </Switch>
+                </div>
             </Router>
             <ToastContainer position={toast.POSITION.TOP_CENTER}/>
         </AuthContext.Provider>

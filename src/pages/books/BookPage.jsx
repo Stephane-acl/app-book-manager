@@ -150,7 +150,7 @@ const BookPage = ({match, history}) => {
     }
 
     return (
-        <>
+        <div className="container-85">
             {/* eslint-disable-next-line no-mixed-operators */}
             {!editing && <h1>Création d'un livre</h1> || <h1>Modification d'un livre</h1>}
             {loading && <FormContentLoader/>}
@@ -201,6 +201,7 @@ const BookPage = ({match, history}) => {
                            value={book.image}
                            onChange={handleChange}
                            error={errors.image}
+                           //type='file'
                     />
                     <Field name="isAvailable"
                            label="Disponibilité"
@@ -239,7 +240,7 @@ const BookPage = ({match, history}) => {
                 <button type='submit' className='btn btn-success' onClick={handleSubmit}>Enregistrer</button>
                 <Link to='/books' className='btn btn-link'>Retour à la liste</Link>
             </div>
-        </>
+        </div>
     )
 }
 
